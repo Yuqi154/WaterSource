@@ -1,6 +1,9 @@
 package org.hiedacamellia.watersource.client.hud;
 
+import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.BufferBuilder;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import org.hiedacamellia.watersource.WaterSource;

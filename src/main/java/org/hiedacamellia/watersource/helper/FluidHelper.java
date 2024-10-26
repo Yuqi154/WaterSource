@@ -55,14 +55,17 @@ public class FluidHelper {
     }
 
     public static int getColor(Fluid type){
+        if(type== Fluids.WATER){
+            return -12618012;
+        }
         if(type== FluidRegistry.PURIFIED_WATER.get()){
-            return 0xCC725F45;
+            return 0x3ABDFF;
         }
         if(type== FluidRegistry.SOUL_WATER.get()){
-            return 0xCC3ABDFF;
+            return 0x725F45;
         }
         if(type== FluidRegistry.COCONUT_JUICE.get()){
-            return 0xCCEAE8E1;
+            return 0xEAE8E1;
         }
         return -1;
     }

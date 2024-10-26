@@ -1,9 +1,12 @@
 package org.hiedacamellia.watersource.client.render.blockentity;
 
 import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.renderer.GameRenderer;
 import org.hiedacamellia.watersource.common.block.entity.WaterFilterDownBlockEntity;
+import org.hiedacamellia.watersource.helper.FluidHelper;
 import org.hiedacamellia.watersource.helper.RenderHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -27,8 +30,8 @@ public class WaterFilterDownTER implements BlockEntityRenderer<WaterFilterDownBl
             if (!fluidTankDown.isEmpty()) {
                 FluidStack fluidStackDown = fluidTankDown.getFluid();
                 TextureAtlasSprite still = mc.getBlockRenderer().getBlockModelShaper().getTexture(fluidStackDown.getFluid().defaultFluidState().createLegacyBlock(), blockEntity.getLevel(), blockEntity.getBlockPos());
-                //int colorRGB = fluidStackDown.getFluid().getAttributes().getColor();
-                int colorRGB = -1;
+
+                int colorRGB = FluidHelper.getColor(fluidStackDown.getFluid());
 
                 float height = (float) fluidStackDown.getAmount() / (float) fluidTankDown.getCapacity() * 0.75f;
                 float vHeight = (still.getV1() - still.getV0()) * (1f - (float) fluidStackDown.getAmount() / (float) fluidTankDown.getCapacity());

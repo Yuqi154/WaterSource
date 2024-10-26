@@ -22,10 +22,10 @@ public final class FluidRegistry {
     public static final DeferredRegister<Fluid> MOD_FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, WaterSource.MODID);
     public static final DeferredRegister<FluidType> MOD_FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, WaterSource.MODID);
 
-    public static RegistryObject<FlowingFluid> PURIFIED_WATER = registerFluid("purified_water", STILL_FLUID_TEXTURE,FLOWING_FLUID_TEXTURE,0xCC725F45,
+    public static RegistryObject<FlowingFluid> PURIFIED_WATER = registerFluid("purified_water", STILL_FLUID_TEXTURE,FLOWING_FLUID_TEXTURE,0xCC3ABDFF,
             FluidType.Properties.create().temperature(27),p->p.block(BlockRegistry.BLOCK_PURIFIED_WATER_FLUID).slopeFindDistance(3).explosionResistance(100F));
 
-    public static RegistryObject<FlowingFluid> SOUL_WATER = registerFluid("soul_water", STILL_FLUID_TEXTURE,FLOWING_FLUID_TEXTURE,0xCC3ABDFF,
+    public static RegistryObject<FlowingFluid> SOUL_WATER = registerFluid("soul_water", STILL_FLUID_TEXTURE,FLOWING_FLUID_TEXTURE,0xCC725F45,
             FluidType.Properties.create().temperature(27),p->p.block(BlockRegistry.BLOCK_SOUL_WATER_FLUID).slopeFindDistance(3).explosionResistance(100F));
 
     public static RegistryObject<FlowingFluid> COCONUT_JUICE = registerFluid("coconut_juice", STILL_FLUID_TEXTURE,FLOWING_FLUID_TEXTURE,0xCCEAE8E1,
