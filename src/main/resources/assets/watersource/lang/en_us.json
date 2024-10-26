@@ -68,6 +68,10 @@
   "fluid.watersource.soul_water":"Soul Water",
   "fluid.watersource.purified_water":"Purified Water",
 
+  "fluid_type.watersource.coconut_juice":"Coconut Juice",
+  "fluid_type.watersource.soul_water":"Soul Water",
+  "fluid_type.watersource.purified_water":"Purified Water",
+
   "tooltip.watersource.drink_unit": "Drink Unit",
   "tooltip.watersource.empty": "Empty",
 

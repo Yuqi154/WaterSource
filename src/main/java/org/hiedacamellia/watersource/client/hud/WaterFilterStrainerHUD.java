@@ -20,17 +20,16 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = WaterSource.MODID)
-public class WaterFilterStrainerHUD extends GuiGraphics {
+public class WaterFilterStrainerHUD {
     int animeTime = 0;
     protected Minecraft mc;
 
-    public WaterFilterStrainerHUD(Minecraft p_283406_, MultiBufferSource.BufferSource p_282238_) {
-        super(p_283406_, p_282238_);
-        this.mc = p_283406_;
+    public WaterFilterStrainerHUD(Minecraft mc) {
+        this.mc = mc;
     }
 
-
-    public void render(PoseStack pose, BlockPos pos) {
+    public void render(GuiGraphics guiGraphics,BlockPos pos) {
+        PoseStack pose = guiGraphics.pose();
         BlockEntity tile = mc.level.getBlockEntity(pos);
         ProfilerFiller profiler = mc.getProfiler();
         if (tile == null) {
@@ -38,17 +37,17 @@ public class WaterFilterStrainerHUD extends GuiGraphics {
         }
         else if (tile instanceof WaterFilterUpBlockEntity) {
             profiler.push("waterFilterStrainer");
-            renderWaterFilterStrainer(pose, tile);
+            renderWaterFilterStrainer(guiGraphics,pose, tile);
             profiler.pop();
         }
         else if (tile instanceof WaterFilterDownBlockEntity) {
             profiler.push("waterFilterStrainer");
-            renderWaterFilterStrainer(pose, mc.level.getBlockEntity(pos.above()));
+            renderWaterFilterStrainer(guiGraphics,pose, mc.level.getBlockEntity(pos.above()));
             profiler.pop();
         }
     }
 
-    private void renderWaterFilterStrainer(PoseStack pose, BlockEntity tile) {
+    private void renderWaterFilterStrainer(GuiGraphics guiGraphics,PoseStack pose, BlockEntity tile) {
         if (tile == null) return;
         ItemStack stack = tile.getCapability(ForgeCapabilities.ITEM_HANDLER).map(data -> data.getStackInSlot(0)).orElse(ItemStack.EMPTY);
         if (stack.isEmpty()) return;
@@ -63,14 +62,14 @@ public class WaterFilterStrainerHUD extends GuiGraphics {
         //render item
         pose.pushPose();
         RenderSystem.enableBlend();
-        this.renderItem(stack, x, y);
+        guiGraphics.renderItem(stack, x, y);
 
 
         //render text
 
         String text = I18n.get("watersource.misc.damage") + (stack.getMaxDamage() - stack.getDamageValue()) + "/" + stack.getMaxDamage();
         if (stack.getItem() == BlockRegistry.ITEM_DIRTY_STRAINER.get()) text = I18n.get("watersource.misc.dirty_strainer");
-        this.drawString(font, text, x + 17, y + 5, 0xFFFFFF);
+        guiGraphics.drawString(font, text, x + 17, y + 5, 0xFFFFFF);
         pose.popPose();
     }
 }

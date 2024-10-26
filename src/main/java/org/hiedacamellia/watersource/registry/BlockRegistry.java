@@ -84,16 +84,16 @@ public class BlockRegistry{
     public static final RegistryObject<Item> ITEM_WATER_DISPENSER = registryNormalBlockItem(WATER_DISPENSER);
     public static final RegistryObject<Item> ITEM_STONE_POT= registryNormalBlockItem(STONE_POT);
 
-//    //Fluid
-//    public static RegistryObject<LiquidBlock> BLOCK_PURIFIED_WATER_FLUID = MOD_BLOCKS.register("purified_water_fluid", () -> {
-//        return new LiquidBlock(()->FluidRegistry.PURIFIED_WATER.get(), Block.Properties.of().noCollission().strength(100.0F));
-//    });
-//    public static RegistryObject<LiquidBlock> BLOCK_SOUL_WATER_FLUID = MOD_BLOCKS.register("soul_water_fluid", () -> {
-//        return new LiquidBlock(FluidRegistry.SOUL_WATER, Block.Properties.of().noCollission().strength(100.0F));
-//    });
-//    public static RegistryObject<LiquidBlock> BLOCK_COCONUT_JUICE_FLUID = MOD_BLOCKS.register("coconut_juice_fluid", () -> {
-//        return new LiquidBlock(FluidRegistry.COCONUT_JUICE, Block.Properties.of().noCollission().strength(100.0F));
-//    });
+    //Fluid
+    public static RegistryObject<LiquidBlock> BLOCK_PURIFIED_WATER_FLUID = MOD_BLOCKS.register("purified_water_fluid", () -> {
+        return new LiquidBlock(()->FluidRegistry.PURIFIED_WATER.get(), Block.Properties.of().noCollission().strength(100.0F));
+    });
+    public static RegistryObject<LiquidBlock> BLOCK_SOUL_WATER_FLUID = MOD_BLOCKS.register("soul_water_fluid", () -> {
+        return new LiquidBlock(FluidRegistry.SOUL_WATER, Block.Properties.of().noCollission().strength(100.0F));
+    });
+    public static RegistryObject<LiquidBlock> BLOCK_COCONUT_JUICE_FLUID = MOD_BLOCKS.register("coconut_juice_fluid", () -> {
+        return new LiquidBlock(FluidRegistry.COCONUT_JUICE, Block.Properties.of().noCollission().strength(100.0F));
+    });
 
     //摘自原版
     private static RotatedPillarBlock log(MapColor p_285370_, MapColor p_285126_) {

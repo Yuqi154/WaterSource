@@ -1,8 +1,11 @@
 package org.hiedacamellia.watersource.helper;
 
 
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.fluids.FluidType;
 import org.hiedacamellia.watersource.common.item.FluidBottleItem;
+import org.hiedacamellia.watersource.registry.FluidRegistry;
 import org.hiedacamellia.watersource.registry.ItemRegistry;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.item.ItemStack;
@@ -49,5 +52,18 @@ public class FluidHelper {
             if (fluidStack.getAmount() >= 250 && fluidStack.getFluid() == equalFluid) return true;
         }
         return false;
+    }
+
+    public static int getColor(Fluid type){
+        if(type== FluidRegistry.PURIFIED_WATER.get()){
+            return 0xCC725F45;
+        }
+        if(type== FluidRegistry.SOUL_WATER.get()){
+            return 0xCC3ABDFF;
+        }
+        if(type== FluidRegistry.COCONUT_JUICE.get()){
+            return 0xCCEAE8E1;
+        }
+        return -1;
     }
 }

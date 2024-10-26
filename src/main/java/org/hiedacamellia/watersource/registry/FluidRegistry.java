@@ -22,18 +22,18 @@ public final class FluidRegistry {
     public static final DeferredRegister<Fluid> MOD_FLUIDS = DeferredRegister.create(ForgeRegistries.FLUIDS, WaterSource.MODID);
     public static final DeferredRegister<FluidType> MOD_FLUID_TYPES = DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, WaterSource.MODID);
 
-    public static RegistryObject<Fluid> PURIFIED_WATER = registerFluid("purified_water", STILL_FLUID_TEXTURE,FLOWING_FLUID_TEXTURE,0xCC725F45,
-            FluidType.Properties.create().temperature(27),p->p.block(null).slopeFindDistance(3).explosionResistance(100F));
+    public static RegistryObject<FlowingFluid> PURIFIED_WATER = registerFluid("purified_water", STILL_FLUID_TEXTURE,FLOWING_FLUID_TEXTURE,0xCC725F45,
+            FluidType.Properties.create().temperature(27),p->p.block(BlockRegistry.BLOCK_PURIFIED_WATER_FLUID).slopeFindDistance(3).explosionResistance(100F));
 
-    public static RegistryObject<Fluid> SOUL_WATER = registerFluid("soul_water", STILL_FLUID_TEXTURE,FLOWING_FLUID_TEXTURE,0xCC3ABDFF,
-            FluidType.Properties.create().temperature(27),p->p.block(null).slopeFindDistance(3).explosionResistance(100F));
+    public static RegistryObject<FlowingFluid> SOUL_WATER = registerFluid("soul_water", STILL_FLUID_TEXTURE,FLOWING_FLUID_TEXTURE,0xCC3ABDFF,
+            FluidType.Properties.create().temperature(27),p->p.block(BlockRegistry.BLOCK_SOUL_WATER_FLUID).slopeFindDistance(3).explosionResistance(100F));
 
-    public static RegistryObject<Fluid> COCONUT_JUICE = registerFluid("coconut_juice", STILL_FLUID_TEXTURE,FLOWING_FLUID_TEXTURE,0xCCEAE8E1,
-            FluidType.Properties.create().temperature(27),p->p.block(null).slopeFindDistance(3).explosionResistance(100F));
+    public static RegistryObject<FlowingFluid> COCONUT_JUICE = registerFluid("coconut_juice", STILL_FLUID_TEXTURE,FLOWING_FLUID_TEXTURE,0xCCEAE8E1,
+            FluidType.Properties.create().temperature(27),p->p.block(BlockRegistry.BLOCK_COCONUT_JUICE_FLUID).slopeFindDistance(3).explosionResistance(100F));
 
 
 
-    public static RegistryObject<Fluid> registerFluid(String name, ResourceLocation still, ResourceLocation flowing, int color, FluidType.Properties properties, UnaryOperator<ForgeFlowingFluid.Properties> blockProperties) {
+    public static RegistryObject<FlowingFluid> registerFluid(String name, ResourceLocation still, ResourceLocation flowing, int color, FluidType.Properties properties, UnaryOperator<ForgeFlowingFluid.Properties> blockProperties) {
         RegistryObject<FluidType> GAS=MOD_FLUID_TYPES.register(name,()->new FluidType(properties) {
             @Override
             public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
@@ -57,7 +57,7 @@ public final class FluidRegistry {
 
 
         });
-        ReferenceSupplier<Fluid> ls=new ReferenceSupplier<Fluid>();
+        ReferenceSupplier<FlowingFluid> ls=new ReferenceSupplier<FlowingFluid>();
         return ls.set(MOD_FLUIDS.register(name, ()->new ForgeFlowingFluid.Flowing(
                 blockProperties.apply(new ForgeFlowingFluid.Properties(GAS,ls,ls)))));
 

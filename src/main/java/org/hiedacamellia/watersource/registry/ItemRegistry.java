@@ -38,7 +38,8 @@ public class ItemRegistry {
     public static RegistryObject<Item> itemPurifiedWaterBucket = MOD_ITEMS.register("purified_water_bucket", () ->
             new BucketItem(FluidRegistry.PURIFIED_WATER, new Item.Properties())
     );
-    public static RegistryObject<Item> itemSoulWaterBucket = MOD_ITEMS.register("soul_water_bucket", () -> new BucketItem(FluidRegistry.SOUL_WATER, new Item.Properties())
+    public static RegistryObject<Item> itemSoulWaterBucket = MOD_ITEMS.register("soul_water_bucket", () ->
+            new BucketItem(FluidRegistry.SOUL_WATER, new Item.Properties())
     );
     public static RegistryObject<Item> ITEM_COCONUT_MILK_BUCKET = MOD_ITEMS.register("coconut_juice_bucket", () ->
             new BucketItem(FluidRegistry.COCONUT_JUICE, new Item.Properties())

@@ -20,7 +20,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = WaterSource.MODID)
-public class WaterLevelHUD extends GuiGraphics {
+public class WaterLevelHUD {
     protected static int tick = 0;
     public final static ResourceLocation OVERLAY_BAR = new ResourceLocation(WaterSource.MODID, "textures/gui/hud/icons.png");
     protected final static int WIDTH = 9;
@@ -28,13 +28,13 @@ public class WaterLevelHUD extends GuiGraphics {
 
     protected Minecraft mc;
 
-    public WaterLevelHUD(Minecraft p_283406_, MultiBufferSource.BufferSource p_282238_) {
-        super(p_283406_, p_282238_);
-        this.mc = p_283406_;
+    public WaterLevelHUD(Minecraft mc) {
+        this.mc = mc;
     }
 
 
-    public void render(PoseStack poseStack,float partialTicks, int screenWidth, int screenHeight, WaterLevelCapability capData, double toughness) {
+    public void render(GuiGraphics guiGraphics,float partialTicks, int screenWidth, int screenHeight, WaterLevelCapability capData, double toughness) {
+        PoseStack poseStack = guiGraphics.pose();
         poseStack.pushPose();
         RenderSystem.enableBlend();
         RenderSystem.setShaderTexture(0, OVERLAY_BAR);
@@ -67,29 +67,29 @@ public class WaterLevelHUD extends GuiGraphics {
                 OffsetY1 = OffsetY + (tick / 2 + k6 + waterLevel) % 3 - 1;
             }
             int OffsetX1 = OffsetX - k6 * 8 - 9;
-            this.blit(OVERLAY_BAR, OffsetX1, OffsetY1, 36 + texU2, texV, WIDTH, HEIGHT);
+            guiGraphics.blit(OVERLAY_BAR, OffsetX1, OffsetY1, 36 + texU2, texV, WIDTH, HEIGHT);
 
             if (k6 * 2 + 1 < waterLevel) {
-                this.blit(OVERLAY_BAR, OffsetX1, OffsetY1, texU1, texV, WIDTH, HEIGHT);
+                guiGraphics.blit(OVERLAY_BAR, OffsetX1, OffsetY1, texU1, texV, WIDTH, HEIGHT);
             }
             if (k6 * 2 + 1 == waterLevel) {
-                this.blit(OVERLAY_BAR, OffsetX1, OffsetY1, texU1 + 9, texV, WIDTH, HEIGHT);
+                guiGraphics.blit(OVERLAY_BAR, OffsetX1, OffsetY1, texU1 + 9, texV, WIDTH, HEIGHT);
             }
 
             //Water Saturation Level
             if (ConfigRegistry.OPEN_WATER_SATURATION_LEVEL.get()) {
                 if (k6 * 2 + 1 < waterSaturationLevel) {
-                    this.blit(OVERLAY_BAR, OffsetX1, OffsetY1 - 1, texU1, texV + 9, 9, 9);
-                    this.blit(OVERLAY_BAR, OffsetX1, OffsetY1 + 1, texU1 + 9, texV + 9, 9, 9);
+                    guiGraphics.blit(OVERLAY_BAR, OffsetX1, OffsetY1 - 1, texU1, texV + 9, 9, 9);
+                    guiGraphics.blit(OVERLAY_BAR, OffsetX1, OffsetY1 + 1, texU1 + 9, texV + 9, 9, 9);
                 }
                 if (k6 * 2 + 1 == waterSaturationLevel) {
-                    this.blit(OVERLAY_BAR, OffsetX1, OffsetY1, texU1, texV + 9, 9, 9);
+                    guiGraphics.blit(OVERLAY_BAR, OffsetX1, OffsetY1, texU1, texV + 9, 9, 9);
                 }
             }
         }
         //test
         if (ConfigRegistry.IS_DEBUG_MODE.get()) {
-            this.drawString(mc.font, String.valueOf(waterExhaustionLevel), OffsetX, OffsetY - 10, 16777215);
+            guiGraphics.drawString(mc.font, String.valueOf(waterExhaustionLevel), OffsetX, OffsetY - 10, 16777215);
         }
         //mc.getTextureManager().bindForSetup(HUDHandler.DEFAULT);
         poseStack.popPose();

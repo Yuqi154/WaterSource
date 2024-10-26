@@ -63,6 +63,10 @@
   "fluid.watersource.soul_water":"灵魂水",
   "fluid.watersource.purified_water":"净化水",
 
+  "fluid_type.watersource.coconut_juice":"椰汁",
+  "fluid_type.watersource.soul_water":"灵魂水",
+  "fluid_type.watersource.purified_water":"净化水",
+
   "enchantment.watersource.moisturizing": "保湿",
   "enchantment.watersource.moisturizing.desc": "减少你的水分消耗。",
 

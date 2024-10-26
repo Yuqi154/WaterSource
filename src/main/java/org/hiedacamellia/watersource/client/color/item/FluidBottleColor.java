@@ -1,6 +1,7 @@
 package org.hiedacamellia.watersource.client.color.item;
 
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
+import org.hiedacamellia.watersource.helper.FluidHelper;
 import org.hiedacamellia.watersource.registry.FluidRegistry;
 import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.world.item.ItemStack;
@@ -12,8 +13,7 @@ public class FluidBottleColor implements ItemColor {
     public int getColor(ItemStack itemStack, int tintIndex) {
         IFluidHandlerItem  fluidHandlerItem = FluidUtil.getFluidHandler(itemStack).orElse(null);
         if (tintIndex == 1) {
-            int color = 0;
-            //int color = FluidUtil.getFluidHandler(itemStack).map(h -> h.getFluidInTank(0).getFluid().getFluidType().getAttributes().getColor()).orElse(-1);
+            int color = FluidUtil.getFluidHandler(itemStack).map(h -> h.getFluidInTank(0).getFluid()).map(FluidHelper::getColor).get();
             if (color == 0) {
                 return -1;
             }

@@ -34,7 +34,7 @@
   "item.watersource.wooden_cup_drink": "Заполненная деревянная чашка",
   "item.watersource.purified_water_bucket": "Ведро очищенной воды",
   "item.watersource.soul_water_bucket": "Ведро с водой души",
-  "item.watersource.coconut_milk_bucket": "Ведро с кокосовым молоком",
+  "item.watersource.coconut_juice_bucket": "Ведро с кокосовым молоком",
   "item.watersource.leather_water_bag": "Кожаная сумка для воды",
   "item.watersource.half_coconut": "Половина кокоса",
   "item.watersource.coconut_piece": "Кокосовый орех",
@@ -43,9 +43,12 @@
   "watersource.misc.damage": "Повреждение",
   "watersource.misc.dirty_strainer": "Грязный",
 
-  "fluid.watersource.coconut_milk":"Кокосовое молоко",
+  "fluid.watersource.coconut_juice":"Кокосовое молоко",
   "fluid.watersource.soul_water":"Душа Вода",
   "fluid.watersource.purified_water":"Дистиллированная вода",
+  "fluid_type.watersource.coconut_juice":"Кокосовое молоко",
+  "fluid_type.watersource.soul_water":"Душа Вода",
+  "fluid_type.watersource.purified_water":"Дистиллированная вода",
 
   "tooltip.watersource.drink_unit": "Еда для напитков"
 }

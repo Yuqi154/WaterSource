@@ -1,6 +1,10 @@
 package org.hiedacamellia.watersource.client;
 
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterClientTooltipComponentFactoriesEvent;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import org.hiedacamellia.watersource.WaterSource;
 import org.hiedacamellia.watersource.client.tooltip.component.WaterTooltipRenderer;
 import org.hiedacamellia.watersource.client.tooltip.component.WaterTooltipComponent;
@@ -16,7 +20,7 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 
-
+@Mod.EventBusSubscriber(modid = WaterSource.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientRegistry {
     public static void init() {
         registerRenderType();
@@ -52,6 +56,10 @@ public class ClientRegistry {
 //        registerTranslucentMovingType(BlockRegistry.BLOCK_SOUL_WATER_FLUID.get());
     }
 
+    @SubscribeEvent
+    public static void registerClientTooltipComponent(RegisterClientTooltipComponentFactoriesEvent event){
+        event.register(WaterTooltipComponent.class, WaterTooltipRenderer::new);
+    }
 //    public static void registerTooltipComponent() {
 //        MinecraftForge.registerTooltipComponentFactory(WaterTooltipComponent.class, WaterTooltipRenderer::new);
 //    }

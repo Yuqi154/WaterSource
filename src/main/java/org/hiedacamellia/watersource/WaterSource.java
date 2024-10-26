@@ -33,6 +33,7 @@ public class WaterSource {
         BlockRegistry.MOD_BLOCKITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ItemRegistry.MOD_ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         FluidRegistry.MOD_FLUIDS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        FluidRegistry.MOD_FLUID_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
         WorldGenRegistry.MOD_FEATURES.register(FMLJavaModLoadingContext.get().getModEventBus());
         MobEffectRegistry.MOD_MOB_EFFECTS.register(FMLJavaModLoadingContext.get().getModEventBus());
         RegistryModule.MOD_SOUND_EVENTS.register(FMLJavaModLoadingContext.get().getModEventBus());
