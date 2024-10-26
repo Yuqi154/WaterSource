@@ -26,7 +26,7 @@ public class ConfigRegistry {
         COMMON_BUILDER.push("Misc");
         RESET_WATER_LEVEL_IN_DEATH = COMMON_BUILDER.comment(" ", "It decides if players' water level would reset in death.", "Default:true").translation("watersource.config.resetWaterLevelInDeath").define("resetWaterLevelInDeath", true);
         WATER_REDUCING_RATE = COMMON_BUILDER.comment(" ", "finalReducingValue = basicValue * waterReducingRate.(DoubleValue)", "Default:1.0").translation("watersource.config.waterReducingRate").defineInRange("waterReducingRate", 1.0D, 0d, 1000D);
-        GIVE_GUIDE_BOOK_ON_JOINING_GAME = COMMON_BUILDER.comment(" ").translation("watersource.config.giveGuideBookOnJoiningGame").define("giveGuideBookOnJoiningGame",true);
+        GIVE_GUIDE_BOOK_ON_JOINING_GAME = COMMON_BUILDER.translation("watersource.config.giveGuideBookOnJoiningGame").define("giveGuideBookOnJoiningGame",true);
         COMMON_BUILDER.pop();
         COMMON_BUILDER.push("Drink Water Block");
         THIRST_DEBUFF_DURATION = COMMON_BUILDER.comment(" ", "The duration of thirst effect when player drink water from water block.(value * 0.05 = seconds)  Default:1200").translation("watersource.config.thirstDebuffDuration").defineInRange("thirstDebuffDuration", 1200, 0, 10800000);
