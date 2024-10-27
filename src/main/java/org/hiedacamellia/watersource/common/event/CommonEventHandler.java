@@ -74,7 +74,7 @@ public class CommonEventHandler {
         ItemStack stack = event.getItem();
         if (entity instanceof ServerPlayer player) {
             WaterLevelUtil.drink(player, stack);
-            SimpleNetworkHandler.CHANNEL.send(PacketDistributor.PLAYER.with(() -> player), new DrinkWaterMessage());
+            //SimpleNetworkHandler.CHANNEL.send(PacketDistributor.PLAYER.with(() -> player), new DrinkWaterMessage());
         }
     }
 
